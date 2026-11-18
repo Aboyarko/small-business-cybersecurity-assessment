@@ -38,19 +38,51 @@ function calculateScore() {
 
     let feedback = "";
 
-    if (mfaAnswer.value === "0" || mfaAnswer.value === "1") {
+    if (mfaAnswer.value === "0") {
         feedback += `
             <h3>MFA Recommendation</h3>
             <p><strong>Why it matters:</strong> MFA adds another layer of protection if an employee's password is stolen.</p>
             <p><strong>Recommended action:</strong> Enable MFA for company email accounts and administrator accounts.</p>
         `;
+    } else if (mfaAnswer.value === "1") {
+        feedback += `
+            <h3>MFA Recommendation</h3>
+            <p><strong>Why it matters:</strong> If you are not sure whether MFA is enabled, the company may have accounts that are not fully protected.</p>
+            <p><strong>Recommended action:</strong> Check company email and administrator accounts to confirm that MFA is enabled.</p>
+        `;
+    } else if (mfaAnswer.value === "2") {
+        feedback += `
+            <h3>MFA Recommendation</h3>
+            <p><strong>Why it matters:</strong> Partial MFA coverage can still leave some business accounts exposed.</p>
+            <p><strong>Recommended action:</strong> Expand MFA to all important company accounts, especially email and administrator accounts.</p>
+        `;
     }
 
-    if (emailAnswer.value === "0" || emailAnswer.value === "1") {
+    if (emailAnswer.value === "0") {
         feedback += `
             <h3>Email Security Recommendation</h3>
-            <p><strong>Why it matters:</strong> Phishing emails can be used to steal passwords or deliver malware.</p>
-            <p><strong>Recommended action:</strong> Use spam and phishing filtering and make sure employees know how to report suspicious emails.</p>
+            <p><strong>Why it matters:</strong> Phishing emails can be used to steal passwords, spread malware, or trick employees into sending sensitive information.</p>
+            <p><strong>Recommended action:</strong> Enable spam and phishing filtering and create a clear process for reporting suspicious emails.</p>
+        `;
+    } else if (emailAnswer.value === "1") {
+        feedback += `
+            <h3>Email Security Recommendation</h3>
+            <p><strong>Why it matters:</strong> If you are not sure what email protections are in place, important security settings may not be configured.</p>
+            <p><strong>Recommended action:</strong> Review your email security settings and confirm that spam and phishing protections are enabled.</p>
+        `;
+    } else if (emailAnswer.value === "2") {
+        feedback += `
+            <h3>Email Security Recommendation</h3>
+            <p><strong>Why it matters:</strong> Partial email protection can still leave employees exposed to phishing and malicious messages.</p>
+            <p><strong>Recommended action:</strong> Review current email filtering and strengthen areas that are not fully protected.</p>
+        `;
+    }
+
+    if (feedback === "") {
+        feedback = `
+            <h3>Good Security Practices</h3>
+            <p>Your current answers show that MFA and email security protections are in place.</p>
+            <p>Continue reviewing these controls regularly and make sure they stay enabled for all employees.</p>
         `;
     }
 
