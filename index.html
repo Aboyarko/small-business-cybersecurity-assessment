@@ -4,29 +4,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Small Business Cybersecurity Assessment</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <h1>Small Business Cybersecurity Assessment</h1>
-  <p>This tool helps small businesses review basic cybersecurity practices and learn why they matter.</p>
+  <div class="container">
 
-  <h2>MFA & Account Security</h2>
+    <h1>Small Business Cybersecurity Assessment</h1>
 
-  <p>Do you require MFA for company email accounts?</p>
+    <p>
+      This tool helps small businesses review basic cybersecurity practices
+      and learn why they matter.
+    </p>
 
-  <label><input type="radio" name="mfa1" value="3"> Yes</label><br>
-  <label><input type="radio" name="mfa1" value="2"> Partially</label><br>
-  <label><input type="radio" name="mfa1" value="1"> Not Sure</label><br>
-  <label><input type="radio" name="mfa1" value="0"> No</label>
+    <div class="question">
+      <h2>MFA & Account Security</h2>
 
-  <h2>Email Security</h2>
+      <p>Do you require MFA for company email accounts?</p>
 
-  <p>Does your company use spam and phishing filtering?</p>
+      <label>
+        <input type="radio" name="mfa1" value="3">
+        Yes
+      </label>
 
-  <label><input type="radio" name="email1" value="3"> Yes</label><br>
-  <label><input type="radio" name="email1" value="2"> Partially</label><br>
-  <label><input type="radio" name="email1" value="1"> Not Sure</label><br>
-  <label><input type="radio" name="email1" value="0"> No</label>
+      <label>
+        <input type="radio" name="mfa1" value="2">
+        Partially
+      </label>
+
+      <label>
+        <input type="radio" name="mfa1" value="1">
+        Not Sure
+      </label>
+
+      <label>
+        <input type="radio" name="mfa1" value="0">
+        No
+      </label>
+    </div>
+
+    <div class="question">
+      <h2>Email Security</h2>
+
+      <p>Does your company use spam and phishing filtering?</p>
+
+      <label>
+        <input type="radio" name="email1" value="3">
+        Yes
+      </label>
+
+      <label>
+        <input type="radio" name="email1" value="2">
+        Partially
+      </label>
+
+      <label>
+        <input type="radio" name="email1" value="1">
+        Not Sure
+      </label>
+
+      <label>
+        <input type="radio" name="email1" value="0">
+        No
+      </label>
+    </div>
+
+    <button onclick="calculateScore()">View Results</button>
+
+    <div id="results"></div>
+
+  </div>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
